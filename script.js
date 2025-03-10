@@ -38,6 +38,8 @@ function resetTable() {
 }
 function displayBook(book) {
   const newRow = document.createElement("tr");
+  const table = document.querySelector("table");
+  table.appendChild(newRow);
 
   const tdName = document.createElement("td");
   tdName.textContent = book.name;
@@ -52,11 +54,14 @@ function displayBook(book) {
   newRow.appendChild(tdPages);
 
   const tdRead = document.createElement("td");
-  tdRead.textContent = book.read;
-  newRow.appendChild(tdRead);
+  const checkbox = document.createElement("input");
+  checkbox.setAttribute('type','checkbox');
+  if(book.read){
+    checkbox.checked = true;
+  }
 
-  const table = document.querySelector("table");
-  table.appendChild(newRow);
+  tdRead.appendChild(checkbox);
+  newRow.appendChild(tdRead);
 }
 
 
