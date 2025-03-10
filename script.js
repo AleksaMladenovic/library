@@ -59,9 +59,18 @@ function displayBook(book) {
   if(book.read){
     checkbox.checked = true;
   }
-
   tdRead.appendChild(checkbox);
   newRow.appendChild(tdRead);
+
+  const btnRemoveBook = document.createElement('button');
+  btnRemoveBook.textContent = 'remove';
+  const tdRemoveBook = document.createElement('td');
+  tdRemoveBook.appendChild(btnRemoveBook);
+  newRow.appendChild(tdRemoveBook);
+
+  btnRemoveBook.addEventListener('click',()=>{
+    table.removeChild(newRow);
+  });
 }
 
 
