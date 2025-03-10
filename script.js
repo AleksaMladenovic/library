@@ -101,7 +101,7 @@ btnSubmit.addEventListener('click',()=>{
     let pages = document.querySelector("input#pages").value;
     let read = document.querySelector("input#read").checked;
 
-    if(name&&author&&pages)
+    if(name&&author&&pages&&pages>=10)
     addBookToLibrary(name,author,pages,read);
 });
 
