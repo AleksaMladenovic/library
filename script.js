@@ -7,6 +7,9 @@ function Book(name, author, pages, read) {
 }
 let myLibrary = [];
 
+Book.prototype.togleRead = function(){
+    this.read = !this.read;
+}
 function addBookToLibrary(name, author, pages, read) {
   let book = new Book(name, author, pages, read);
   myLibrary.push(book);
@@ -61,7 +64,7 @@ function displayBook(book) {
   }
   checkbox.addEventListener('change',()=>{
     let fiddenBook = myLibrary.find((el)=>el==book);
-    fiddenBook.read = checkbox.checked;
+    fiddenBook.togleRead();
   });
   tdRead.appendChild(checkbox);
   newRow.appendChild(tdRead);
