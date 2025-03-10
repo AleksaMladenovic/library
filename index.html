@@ -16,5 +16,27 @@
             <th>Read</th>
         </tr>
     </table>
+
+    <button id="btnAddNewBook">
+        Add new Book
+    </button>
+    <dialog class="addBook">
+        <form method="dialog">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" required>
+
+            <label for="pages">Pages:</label>
+            <input type="number" id="pages" name="pages" min="10" step="1" required>
+
+            <label for="read">Read:</label>
+            <input type="checkbox" id="read" name="read">
+
+            <button id="btnSubmit">Submit</button>
+        </form>
+    </dialog>
+
 </body>
 </html>

@@ -58,7 +58,23 @@ function displayBook(book) {
   const table = document.querySelector("table");
   table.appendChild(newRow);
 }
-resetTable();
+
+
+const btnAddNewBook = document.querySelector("#btnAddNewBook");
+const dialogAddNewBook = document.querySelector("dialog.addBook");
+btnAddNewBook.addEventListener('click',()=>{
+    dialogAddNewBook.showModal();
+});
+
+const btnSubmit = document.querySelector("#btnSubmit");
+btnSubmit.addEventListener('click',()=>{
+    let name = document.querySelector("input#name").value;
+    let author = document.querySelector("input#author").value;
+    let pages = document.querySelector("input#pages").value;
+    let read = document.querySelector("input#read").checked;
+
+    addBookToLibrary(name,author,pages,read);
+});
 
 addBookToLibrary("Moja knjga", "Aleksa", 54, true);
 addBookToLibrary("Njena knjiga", "Marta", 100, false);
