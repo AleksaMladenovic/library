@@ -63,6 +63,7 @@ body {
   justify-items: center;
   grid-template-columns: 1fr;
   background-color: var(--Color4);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .tableWrap {
@@ -116,12 +117,16 @@ button#btnAddNewBook {
   width: min(300px, 100vw);
   height: 40px;
   border-radius: 190px;
-  border: 1px solid black;
+  border: 2px solid var(--Color0);
   background-color: var(--Color1);
   color: black;
   font-weight: bold;
   font-size: 24px;
   margin-top: 20px;
+}
+
+button#btnAddNewBook:hover{
+    background-color: rgb(139, 149, 211);
 }
 .bntRemoveBook img{
     height: 30px;
@@ -150,7 +155,8 @@ form{
 
 .formRow{
     display: grid;
-    grid-template-columns: 70px 1fr;
+    position: relative;
+    grid-template-columns: 70px 1fr 1px;
 }
 label{
     justify-self: right;
@@ -164,7 +170,6 @@ input[type="checkbox"]{
 }
 
 input[type="text"], input[type="number"]{
-    position: relative;
     top:-2px;
     border-radius: 2px;
     outline: 0;
@@ -177,6 +182,14 @@ input[type="text"]:focus, input[type="number"]:focus{
 
 }
 
+input[type="text"]:required:invalid ~span::before, input[type="number"]:required:invalid~span::before{
+    content: "*";
+    position: absolute;
+    font-size: 40px;
+    color: red;
+    right: 8px;
+    top: -5px;
+}
 form button{
     width: 90%;
     margin-left: auto;
