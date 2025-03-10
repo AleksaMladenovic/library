@@ -105,5 +105,10 @@ btnSubmit.addEventListener('click',()=>{
     addBookToLibrary(name,author,pages,read);
 });
 
+const btnCancel = document.querySelector("#btnCancel");
+btnCancel.addEventListener('click',()=>{
+    dialogAddNewBook.close();
+})
+
 addBookToLibrary("Moja knjga", "Aleksa", 54, true);
 addBookToLibrary("Njena knjiga", "Marta", 100, false);
