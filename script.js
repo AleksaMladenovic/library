@@ -5,7 +5,7 @@ function Book(name, author, pages, read) {
   this.pages = pages;
   this.read = read;
 }
-const myLibrary = [];
+let myLibrary = [];
 
 function addBookToLibrary(name, author, pages, read) {
   let book = new Book(name, author, pages, read);
@@ -74,6 +74,7 @@ function displayBook(book) {
 
   btnRemoveBook.addEventListener('click',()=>{
     table.removeChild(newRow);
+    myLibrary = myLibrary.filter(el=>el!==book);
   });
 }
 
