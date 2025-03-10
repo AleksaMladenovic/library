@@ -32,12 +32,14 @@ function resetTable() {
   thPages.textContent = "Pages";
   const thRead = document.createElement("th");
   thRead.textContent = "Read";
+  const thBlank = document.createElement("th");
 
   table.appendChild(row);
   row.appendChild(thName);
   row.appendChild(thAuthor);
   row.appendChild(thPages);
   row.appendChild(thRead);
+  row.appendChild(thBlank);
 }
 function displayBook(book) {
   const newRow = document.createElement("tr");
@@ -70,7 +72,11 @@ function displayBook(book) {
   newRow.appendChild(tdRead);
 
   const btnRemoveBook = document.createElement('button');
-  btnRemoveBook.textContent = 'remove';
+  const imgInsideButton = document.createElement('img');
+  imgInsideButton.setAttribute('src','delete.png');
+  btnRemoveBook.appendChild(imgInsideButton);
+  btnRemoveBook.classList.add('bntRemoveBook');
+  
   const tdRemoveBook = document.createElement('td');
   tdRemoveBook.appendChild(btnRemoveBook);
   newRow.appendChild(tdRemoveBook);
@@ -95,6 +101,7 @@ btnSubmit.addEventListener('click',()=>{
     let pages = document.querySelector("input#pages").value;
     let read = document.querySelector("input#read").checked;
 
+    if(name&&author&&pages)
     addBookToLibrary(name,author,pages,read);
 });
 

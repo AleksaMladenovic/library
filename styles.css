@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 * {
@@ -8,22 +10,110 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 p {
   text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
+}
+
+:root {
+  --Color0: rgb(32, 87, 129);
+  --Color1: rgb(173, 178, 212);
+  --Color2: rgb(199, 217, 221);
+  --Color3: rgb(213, 229, 213);
+  --Color4: rgb(238, 241, 218);
+}
+
+body {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  background-color: var(--Color4);
+}
+
+.tableWrap {
+  width: 900px;
+  display: flex;
+  justify-content: center;
+}
+table {
+  width: 100%;
+  border-spacing: 1px 6px;
+  th,
+  td {
+    text-align: center;
+  }
+  th {
+    background-color: var(--Color0);
+  }
+  tr:nth-child(even) {
+    background-color: var(--Color3);
+  }
+
+  tr:nth-child(odd) {
+    background-color: var(--Color2);
+  }
+
+  tr:nth-child(1) {
+    th:nth-child(1) {
+      border-radius: 20px 0px 0px 0px;
+    }
+    th:nth-last-child(1) {
+      border-radius: 0px 20px 0px 0px;
+    }
+  }
+
+  tr:nth-last-child(1) {
+    td:nth-child(1) {
+      border-radius: 0px 0px 0px 20px;
+    }
+    td:nth-last-child(1) {
+        border-radius: 0px 0px 20px 0px;
+    }
+  }
+}
+button#btnAddNewBook {
+  width: min(700px, 100vw);
+  margin-top: 20px;
+}
+.bntRemoveBook img{
+    height: 30px;
+}
+.bntRemoveBook{
+    border: 0;
+    background-color: inherit;
 }
