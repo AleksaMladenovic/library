@@ -59,6 +59,10 @@ function displayBook(book) {
   if(book.read){
     checkbox.checked = true;
   }
+  checkbox.addEventListener('change',()=>{
+    let fiddenBook = myLibrary.find((el)=>el==book);
+    fiddenBook.read = checkbox.checked;
+  });
   tdRead.appendChild(checkbox);
   newRow.appendChild(tdRead);
 
