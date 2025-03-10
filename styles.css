@@ -183,8 +183,15 @@ form button{
     margin-right: auto;
     border: 0;
     border-radius: 10px;
+    border: 2px solid black;
 }
 
+#btnSubmit{
+    border-color: rgb(30, 223, 30);
+}
+#btnCancel{
+    border-color: rgb(226, 23, 23);
+}
 #btnSubmit:hover{
     background-color: rgb(165, 226, 165);
 }
