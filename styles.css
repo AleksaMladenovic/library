@@ -133,3 +133,62 @@ button#btnAddNewBook {
 h1{
     font-size: 40px;
 }
+
+dialog{
+    top:50px;
+    justify-self: center;
+    width: 400px;
+    background-color:var(--Color2);
+    border: 6px solid var(--Color0);
+    border-radius: 20px;
+}
+form{
+    display: grid;
+    row-gap: 20px;
+    font-size: 20px;
+}
+
+.formRow{
+    display: grid;
+    grid-template-columns: 70px 1fr;
+}
+label{
+    justify-self: right;
+    padding-right: 10px;
+}
+input[type="checkbox"]{
+    justify-self: left;
+    height: 30px;
+    width: 30px;
+    
+}
+
+input[type="text"], input[type="number"]{
+    position: relative;
+    top:-2px;
+    border-radius: 2px;
+    outline: 0;
+    border: 2px solid var(--Color0);
+    border-radius: 5px;
+
+}
+input[type="text"]:focus, input[type="number"]:focus{
+    outline: 2px solid var(--Color0);
+
+}
+
+form button{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0;
+    border-radius: 10px;
+}
+
+#btnSubmit:hover{
+    background-color: rgb(165, 226, 165);
+}
+
+#btnCancel:hover{
+    background-color: rgb(235, 117, 117);
+}

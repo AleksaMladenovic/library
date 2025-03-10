@@ -24,21 +24,31 @@
     <button id="btnAddNewBook">
         NEW BOOK
     </button>
-    <dialog open class="addBook">
+    <dialog class="addBook">
         <form method="dialog">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+            <div class="formRow">
+            
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+        </div>
 
-            <label for="author">Author:</label>
-            <input type="text" id="author" name="author" required>
+            <div class="formRow">
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+            </div>
 
-            <label for="pages">Pages:</label>
-            <input type="number" id="pages" name="pages" min="10" step="1" required>
+            <div class="formRow">
+                <label for="pages">Pages:</label>
+                <input type="number" id="pages" name="pages" min="10" step="1" required>
+            </div>
 
-            <label for="read">Read:</label>
-            <input type="checkbox" id="read" name="read">
+            <div class="formRow">
+                <label for="read">Read:</label>
+                <input type="checkbox" id="read" name="read">
+            </div>
 
             <button id="btnSubmit">Submit</button>
+            <button type="button" id="btnCancel">Cancel</button>
         </form>
     </dialog>
 
