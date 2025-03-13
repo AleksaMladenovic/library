@@ -1,15 +1,18 @@
-function Book(name, author, pages, read) {
-  this.id = crypto.randomUUID();
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+class Book {
+  constructor(name, author, pages, read) {
+    this.id = crypto.randomUUID();
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+  togleRead () {
+    this.read = !this.read;
+  };
 }
+
 let myLibrary = [];
 
-Book.prototype.togleRead = function(){
-    this.read = !this.read;
-}
 function addBookToLibrary(name, author, pages, read) {
   let book = new Book(name, author, pages, read);
   myLibrary.push(book);
@@ -60,55 +63,54 @@ function displayBook(book) {
 
   const tdRead = document.createElement("td");
   const checkbox = document.createElement("input");
-  checkbox.setAttribute('type','checkbox');
-  if(book.read){
+  checkbox.setAttribute("type", "checkbox");
+  if (book.read) {
     checkbox.checked = true;
   }
-  checkbox.addEventListener('change',()=>{
-    let fiddenBook = myLibrary.find((el)=>el==book);
+  checkbox.addEventListener("change", () => {
+    let fiddenBook = myLibrary.find((el) => el == book);
     fiddenBook.togleRead();
   });
   tdRead.appendChild(checkbox);
   newRow.appendChild(tdRead);
 
-  const btnRemoveBook = document.createElement('button');
-  const imgInsideButton = document.createElement('img');
-  imgInsideButton.setAttribute('src','delete.png');
+  const btnRemoveBook = document.createElement("button");
+  const imgInsideButton = document.createElement("img");
+  imgInsideButton.setAttribute("src", "delete.png");
   btnRemoveBook.appendChild(imgInsideButton);
-  btnRemoveBook.classList.add('bntRemoveBook');
-  
-  const tdRemoveBook = document.createElement('td');
+  btnRemoveBook.classList.add("bntRemoveBook");
+
+  const tdRemoveBook = document.createElement("td");
   tdRemoveBook.appendChild(btnRemoveBook);
   newRow.appendChild(tdRemoveBook);
 
-  btnRemoveBook.addEventListener('click',()=>{
+  btnRemoveBook.addEventListener("click", () => {
     table.removeChild(newRow);
-    myLibrary = myLibrary.filter(el=>el!==book);
+    myLibrary = myLibrary.filter((el) => el !== book);
   });
 }
 
-
 const btnAddNewBook = document.querySelector("#btnAddNewBook");
 const dialogAddNewBook = document.querySelector("dialog.addBook");
-btnAddNewBook.addEventListener('click',()=>{
-    dialogAddNewBook.showModal();
+btnAddNewBook.addEventListener("click", () => {
+  dialogAddNewBook.showModal();
 });
 
 const btnSubmit = document.querySelector("#btnSubmit");
-btnSubmit.addEventListener('click',()=>{
-    let name = document.querySelector("input#name").value;
-    let author = document.querySelector("input#author").value;
-    let pages = document.querySelector("input#pages").value;
-    let read = document.querySelector("input#read").checked;
+btnSubmit.addEventListener("click", () => {
+  let name = document.querySelector("input#name").value;
+  let author = document.querySelector("input#author").value;
+  let pages = document.querySelector("input#pages").value;
+  let read = document.querySelector("input#read").checked;
 
-    if(name&&author&&pages&&pages>=10)
-    addBookToLibrary(name,author,pages,read);
+  if (name && author && pages && pages >= 10)
+    addBookToLibrary(name, author, pages, read);
 });
 
 const btnCancel = document.querySelector("#btnCancel");
-btnCancel.addEventListener('click',()=>{
-    dialogAddNewBook.close();
-})
+btnCancel.addEventListener("click", () => {
+  dialogAddNewBook.close();
+});
 
 addBookToLibrary("Moja knjga", "Aleksa", 54, true);
 addBookToLibrary("Njena knjiga", "Marta", 100, false);
